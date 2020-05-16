@@ -1,2 +1,2 @@
 # bun-vue-upload
-vue upload component
+vue 上传组件
