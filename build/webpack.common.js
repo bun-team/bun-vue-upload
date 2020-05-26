@@ -14,16 +14,22 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
-        test: /\.tsx?$/,
+        test: /\.ts(x)?$/,
         exclude: /node_modules/,
-        loader: ['babel-loader']
+        loader: [
+          'babel-loader',
+          {
+            loader: 'ts-loader',
+            options: { appendTsxSuffixTo: [/\.vue$/] }
+          }
+        ]
       }
     ]
   },
   resolve: {
     extensions: ['.ts', '.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.esm.js'
     }
   },
   plugins: [new CleanWebpackPlugin(), new VueLoaderPlugin()]
